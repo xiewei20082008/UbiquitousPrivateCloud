@@ -2,10 +2,12 @@
 #include <Timer.h>
 
 #define ROUND_TIMES 10000
+#define PACKAGE_SIZE 1 //1 means 1 KB.
 
 int main()
 {
   RoundTripClient rtc = new RoundTripClient();
+  rtc.setPackageSize(1);
   rtc.setDstIp("127.0.0.1");
   rtc.setDstPort();
 
