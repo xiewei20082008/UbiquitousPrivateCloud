@@ -7,7 +7,7 @@
 int main()
 {
   RoundTripClient rtc = new RoundTripClient();
-  rtc.setPackageSize(1);
+  rtc.setPackageSize(PACKAGE_SIZE);
   rtc.setDstIp("127.0.0.1");
   rtc.setDstPort();
 
