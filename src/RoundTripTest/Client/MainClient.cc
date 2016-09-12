@@ -1,24 +1,24 @@
-#include <RoundTripClient.h>
-#include <Timer.h>
+#include "RoundTripClient.h"
+#include "Timer.h"
+#include "../DefaultValue.h"
 
-#define ROUND_TIMES 10000
-#define PACKAGE_SIZE 1 //1 means 1 KB.
 
 int main()
 {
-  RoundTripClient rtc = new RoundTripClient();
-  rtc.setPackageSize(PACKAGE_SIZE);
-  rtc.setDstIp("127.0.0.1");
-  rtc.setDstPort();
+	printf("[ Package size: %d ]\n", PACKAGE_SIZE);
+	printf("[ Round times: %d ]\n", ROUND_TIMES);
+	RoundTripClient rtc;
+	rtc.setPackageSize(PACKAGE_SIZE);
+	rtc.setDstIp(REMOTE_IP);
+	rtc.setDstPort(REMOTE_PORT);
 
-  Timer t = new Timer();
+	Timer t;
 
-  t.start();
+	t.start();
 
-  rtc.roundTrip(ROUND_TIMES);
+	rtc.roundTrip(ROUND_TIMES);
 
-  t.end();
-  t.showInterval();
-
-  return 0;
+	t.end();
+	t.showInterval();
+	return 0;
 }

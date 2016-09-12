@@ -1,10 +1,12 @@
-#include <RoundTripServer.h>
+#include "RoundTripServer.h"
+#include "../DefaultValue.h"
+#include <stdio.h>
 
 int main()
 {
-  RoundTripServer rts = new RoundTripServer();
-  rts.setListenerPort(999);
-  rts.start();
+	RoundTripServer rts;
+	rts.setListenerPort(SERVER_PORT);
+	rts.start();
 
-  return 0;
+	return 0;
 }
