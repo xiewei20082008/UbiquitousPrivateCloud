@@ -64,12 +64,12 @@ void RoundTripServer::start() {
 		if (!fork()) { /* this is the child process */
 			int round_times = 0;
 			int recv_buf_size;
-			char buf[ARTRIBUTE_PACKAGE_SIZE];
+			char buf[ATTRIBUTE_PACKAGE_SIZE];
 
 			int package_size;
 
 			// receive first message with 'round_times'
-			if ( (recv_buf_size = recv(new_fd, buf, ARTRIBUTE_PACKAGE_SIZE, 0)) == -1) perror("receive");
+			if ( (recv_buf_size = recv(new_fd, buf, ATTRIBUTE_PACKAGE_SIZE, 0)) == -1) perror("receive");
 			else {
 				printf("[ RECEIVE MESSAGE (round_times) : %s ]\n", buf);
 
@@ -78,11 +78,11 @@ void RoundTripServer::start() {
 					perror("sscanf");
 				}
 
-				if (send(new_fd, buf, ARTRIBUTE_PACKAGE_SIZE, 0) == -1) perror("send");
+				if (send(new_fd, buf, ATTRIBUTE_PACKAGE_SIZE, 0) == -1) perror("send");
 			}
 
 			// receive second message with 'package size'
-			if ( (recv_buf_size = recv(new_fd, buf, ARTRIBUTE_PACKAGE_SIZE, 0)) == -1) perror("receive");
+			if ( (recv_buf_size = recv(new_fd, buf, ATTRIBUTE_PACKAGE_SIZE, 0)) == -1) perror("receive");
 			else {
 				printf("[ RECEIVE MESSAGE (package_size): %s ]\n", buf);
 
@@ -91,7 +91,7 @@ void RoundTripServer::start() {
 					perror("sscanf");
 				}
 
-				if (send(new_fd, buf, ARTRIBUTE_PACKAGE_SIZE, 0) == -1) perror("send");
+				if (send(new_fd, buf, ATTRIBUTE_PACKAGE_SIZE, 0) == -1) perror("send");
 			}
 
 

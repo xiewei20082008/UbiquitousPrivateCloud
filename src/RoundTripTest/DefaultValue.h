@@ -5,7 +5,7 @@
 #define PACKAGE_SIZE 1000	// package_size
 
 // const
-#define ARTRIBUTE_PACKAGE_SIZE 500
+#define ATTRIBUTE_PACKAGE_SIZE 500
 
 
 /* Client side */

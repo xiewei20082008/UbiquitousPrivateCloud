@@ -57,38 +57,38 @@ void RoundTripClient::roundTrip(int round_times) {
 		exit(1);
 	}
 
-	char buf[ARTRIBUTE_PACKAGE_SIZE];
+	char buf[ATTRIBUTE_PACKAGE_SIZE];
 	while (true) {
 		// round times-------------------------BEGIN
-		bzero(buf, ARTRIBUTE_PACKAGE_SIZE);
+		bzero(buf, ATTRIBUTE_PACKAGE_SIZE);
 		sprintf(buf, "%d", round_times);
 
 		// send 'round_times' to server.
-		if (send(sockfd, buf, ARTRIBUTE_PACKAGE_SIZE, 0) == -1) {
+		if (send(sockfd, buf, ATTRIBUTE_PACKAGE_SIZE, 0) == -1) {
 			perror("send");
 			break;
 		}
 
 		int recv_buf_size;
 		// receive response for 'round_times' sending.
-		if ((recv_buf_size = recv(sockfd, buf, ARTRIBUTE_PACKAGE_SIZE, 0)) == -1) {
+		if ((recv_buf_size = recv(sockfd, buf, ATTRIBUTE_PACKAGE_SIZE, 0)) == -1) {
 			perror("recv");
 			break;
 		}
 		// round times-------------------------END
 
 		// package size-------------------------BEGIN
-		bzero(buf, ARTRIBUTE_PACKAGE_SIZE);
+		bzero(buf, ATTRIBUTE_PACKAGE_SIZE);
 		sprintf(buf, "%d", PACKAGE_SIZE);
 
 		// send 'Package size' to server.
-		if (send(sockfd, buf, ARTRIBUTE_PACKAGE_SIZE, 0) == -1) {
+		if (send(sockfd, buf, ATTRIBUTE_PACKAGE_SIZE, 0) == -1) {
 			perror("send");
 			break;
 		}
 
 		// receive response for 'Package size' sending.
-		if ((recv_buf_size = recv(sockfd, buf, ARTRIBUTE_PACKAGE_SIZE, 0)) == -1) {
+		if ((recv_buf_size = recv(sockfd, buf, ATTRIBUTE_PACKAGE_SIZE, 0)) == -1) {
 			perror("recv");
 			break;
 		}
